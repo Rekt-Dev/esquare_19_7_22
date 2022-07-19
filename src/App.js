@@ -3,31 +3,25 @@ import logo from "./logo.svg";
 import "./App.css";
 
 const App = () => {
-  const [todos, setTodos] = useState();
-  const [loading, setLoading] = useState(false);
-  async function getData() {
+  const [data, setData] = useState();
+  async function getData(str) {
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/photos"
+        `https://www.googleapis.com/books/v1/volumes?q=${str}`
+
       );
-      setTodos(await response.json());
+      setData(await response.json());
     } catch (e) {
       console.log(e);
     } finally {
-      setLoading(false);
-    }
+console.log(`this is data from state : ${data}`)    }
   }
 
-  useEffect(() => {
-    setLoading(true);
-    getData();
-  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
-        {loading && <img src={logo} className="App-logo" alt="logo" />}
-        {todos && todos.map((todo) => <p key={todo.id}>{todo.title}</p>)}
+        { <img src={logo} className="App-logo" alt="logo" />}
       </header>
     </div>
   );
