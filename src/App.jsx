@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { Header } from "./componenets/Header";
 import { usersSearch, constructedLink, getData } from "./componenets/Header";
+import { Card } from "./componenets/Card";
 //import requestOptions from "./services/requestOptions"
 
 const App = () => {
@@ -23,6 +24,8 @@ const App = () => {
   return (
     <div>
       <Header search={getData} />
+      <br />
+      <Card />
       <br />
       <>bruv</>
     </div>
