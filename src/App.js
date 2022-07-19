@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
+//import * as ReactDOMClient from 'react-dom/client';
+import React, { useState } from "react";
 import "./App.css";
+import { Header } from "./componenets/Header";
 
 const App = () => {
   const [data, setData] = useState();
@@ -8,21 +9,18 @@ const App = () => {
     try {
       const response = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${str}`
-
       );
       setData(await response.json());
     } catch (e) {
       console.log(e);
     } finally {
-console.log(`this is data from state : ${data}`)    }
+      console.log(`this is data from state : ${data}`);
+    }
   }
-
 
   return (
     <div className="App">
-      <header className="App-header">
-        { <img src={logo} className="App-logo" alt="logo" />}
-      </header>
+      <Header />
     </div>
   );
 };
