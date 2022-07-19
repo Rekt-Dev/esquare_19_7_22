@@ -6,7 +6,7 @@ export function Header() {
 
   return (
     <div>
-      <input placeholder="Enter Your Search Here..."></input>
+      <input onChange="text" placeholder="Enter Your Search Here..."></input>
 
       <button>Search</button>
     </div>
