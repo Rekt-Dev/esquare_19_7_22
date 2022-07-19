@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Header } from "./componenets/Header";
-import { usersSearch, constructedLink } from "./componenets/Header";
+import { usersSearch, constructedLink, getData } from "./componenets/Header";
 //import requestOptions from "./services/requestOptions"
 
 const App = () => {
   const [data, setData] = useState();
-  let data1
+  let data1;
 
   async function getData(str) {
     const response = await fetch(
@@ -16,19 +16,17 @@ const App = () => {
     setData(await response.json());
 
     function sendSearchToServer() {
-    console.log("sendSearchToServer activated")
-    }}
-   
-  
-      
-    return (<div>
-    
-<Header />
-<br />
-<>bruv</>
-      </div>
-    )
+      console.log("sendSearchToServer activated");
+    }
   }
 
+  return (
+    <div>
+      <Header search={getData} />
+      <br />
+      <>bruv</>
+    </div>
+  );
+};
 
 export default App;
