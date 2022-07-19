@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {getData} from "../App"
 
 export function Header() {
   const [usersSearch, setUsersSearch] = useState("");
@@ -15,10 +16,12 @@ export function Header() {
       <input
         onChange={(e) => setUsersSearch(e.target.value)}
         type={"text"}
-        placeHolder={"Enter Your Search Here..."}
-      ></input>
+        placeHolder={"Enter Your Search Here..."}>
+      
 
-      <button onClick={sendSearchToServer}>Search</button>
+      </input>
+<br />
+      <button onClick={getData}>Search</button>
     </>
   );
 }
